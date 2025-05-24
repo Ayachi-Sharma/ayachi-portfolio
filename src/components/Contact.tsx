@@ -203,12 +203,12 @@ const Contact: React.FC = () => {
                 <div className="ml-4">
                   <h4 className="text-gray-700 font-medium">LinkedIn</h4>
                   <a 
-                    href="#" // Add your LinkedIn profile URL here
+                    href="https://www.linkedin.com/in/ayachi-sharma-b0002225b/" // Add your LinkedIn profile URL here
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-900 hover:text-gray-700"
                   >
-                    Connect on LinkedIn
+                    Ayachi-Sharma
                   </a>
                 </div>
               </div>
