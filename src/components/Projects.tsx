@@ -83,7 +83,7 @@ const Projects: React.FC = () => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="flex items-center mb-8">
           <div className="bg-blue-100 p-3 rounded-full">
             <FolderKanban className="h-6 w-6 text-blue-700" />
@@ -143,7 +143,7 @@ const Projects: React.FC = () => {
                 </button>
               </div>
               
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {selectedProject.tags.map((tag, i) => (
                   <span key={i} className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
                     {tag}
@@ -157,6 +157,7 @@ const Projects: React.FC = () => {
                   <li key={i}>{detail}</li>
                 ))}
               </ul>
+
               
               <div className="flex justify-end">
                 <button 

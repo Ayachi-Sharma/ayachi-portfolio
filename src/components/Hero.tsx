@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import pic from "../assets/ayachi-pic.jpg";
 import { Download, Github, Mail, MapPin } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -37,7 +38,7 @@ const Hero: React.FC = () => {
             </p>
             <div className="flex gap-4">
               <a 
-                href="../assets/ayachi-pic.jpg" 
+                href="https://drive.google.com/file/d/1FwV42YDZUGI-7wrSsqBxuQ7nJy4RLRun/view" 
                 download
                 className="bg-blue-900 text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1 hover:bg-blue-800 flex items-center gap-2"
               >
@@ -66,7 +67,7 @@ const Hero: React.FC = () => {
         >
           <div className="relative w-80 h-80 rounded-full overflow-hidden border-8 border-gray-100 shadow-xl">
             <img 
-              src="/src/assets/ayachi-pic.jpg" 
+              src = {pic} 
               alt="Profile"
               className="w-full h-full object-cover"
             />

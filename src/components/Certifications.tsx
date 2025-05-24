@@ -18,21 +18,21 @@ const Certifications: React.FC = () => {
     {
       title: 'Core JAVA',
       issuer: 'MSME Technology Centre',
-      date: '2023',
+      date: '2024',
       icon: '☕',
       link: 'https://drive.google.com/file/d/1Y2XIlC6A6E2duUInUIg9BZLN61NU3Bpx/view' // Replace with actual certificate link
     },
     {
       title: 'Summer Internship Program',
       issuer: 'IBM',
-      date: '2023',
+      date: '2024',
       icon: '💻',
       link: 'https://drive.google.com/file/d/1Z9gus7YfrHCwjL8WBrFe3EzbimrWqUPg/view' // Replace with actual certificate link
     },
     {
       title: '3 Month Internship',
       issuer: 'Amparo Secure Tech., Bhilwara',
-      date: '2024',
+      date: '2025',
       icon: '🔒',
       link: '#' // Replace with actual certificate link
     }
@@ -67,7 +67,7 @@ const Certifications: React.FC = () => {
       className="py-36 "
     >
       <motion.div 
-        className="max-w-4xl mx-auto px-4"
+        className="max-w-5xl mx-auto px-4"
         initial={{ opacity: 0, y: 20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { Link } from 'lucide-react';
 import { Code2 } from 'lucide-react';
 
 interface Skill {
@@ -57,7 +58,7 @@ const Skills: React.FC = () => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="flex items-center mb-8">
           <div className="bg-blue-100 p-3 rounded-full">
             <Code2 className="h-6 w-6 text-blue-700" />
@@ -96,7 +97,15 @@ const Skills: React.FC = () => {
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span>Peak Performance Workshop at MILT</span>
+                  <span
+                    className="inline-flex items-center gap-2"
+                  >
+                    Peak Performance Workshop at MILT 
+                    <a href="https://drive.google.com/file/d/1cbNtAcncc1aamNCP4FBAcWqLVE-Kuwwf/view"
+                    target='_blank'>
+                    <Link className="w-5 h-5 text-black" />
+                    </a>
+                    </span>
                 </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
