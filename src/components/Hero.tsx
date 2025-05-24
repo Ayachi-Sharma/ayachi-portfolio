@@ -64,9 +64,9 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="flex-1 flex justify-center"
         >
-          <div className="relative w-80 h-84 rounded-full overflow-hidden border-8 border-gray-100 shadow-xl">
+          <div className="relative w-80 h-80 rounded-full overflow-hidden border-8 border-gray-100 shadow-xl">
             <img 
-              src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg" 
+              src="/src/assets/ayachi-pic.jpg" 
               alt="Profile"
               className="w-full h-full object-cover"
             />

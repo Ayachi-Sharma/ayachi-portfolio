@@ -20,16 +20,11 @@ const Footer: React.FC = () => {
               <Github className="h-5 w-5" />
             </a>
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/ayachi-sharma-b0002225b/" 
+              target="_blank"
               className="text-gray-600 hover:text-blue-700 transition duration-300"
             >
               <Linkedin className="h-5 w-5" />
-            </a>
-            <a 
-              href="#" 
-              className="text-gray-600 hover:text-blue-700 transition duration-300"
-            >
-              <Twitter className="h-5 w-5" />
             </a>
             <a 
               href="mailto:sharmaaychi@gmail.com" 

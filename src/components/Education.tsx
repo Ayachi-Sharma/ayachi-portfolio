@@ -22,13 +22,13 @@ const Education: React.FC = () => {
       school: 'Noble International School',
       degree: 'Senior Secondary English Medium',
       period: '2021-2022',
-      percentage: '81%'
+      percentage: '89%'
     },
     {
       school: 'Noble International School',
       degree: 'Secondary English Medium',
       period: '2019-2020',
-      percentage: '89%'
+      percentage: '81%'
     }
   ];
 

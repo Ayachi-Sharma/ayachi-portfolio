@@ -20,14 +20,14 @@ const Certifications: React.FC = () => {
       issuer: 'MSME Technology Centre',
       date: '2023',
       icon: '☕',
-      link: '#' // Replace with actual certificate link
+      link: 'https://drive.google.com/file/d/1Y2XIlC6A6E2duUInUIg9BZLN61NU3Bpx/view' // Replace with actual certificate link
     },
     {
       title: 'Summer Internship Program',
       issuer: 'IBM',
       date: '2023',
       icon: '💻',
-      link: '#' // Replace with actual certificate link
+      link: 'https://drive.google.com/file/d/1Z9gus7YfrHCwjL8WBrFe3EzbimrWqUPg/view' // Replace with actual certificate link
     },
     {
       title: '3 Month Internship',
