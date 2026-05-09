@@ -7,6 +7,7 @@ interface Project {
   tags: string[];
   details: string[];
   color: string;
+  liveLink?: string;
 }
 
 const Projects: React.FC = () => {
@@ -15,6 +16,21 @@ const Projects: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const projects: Project[] = [
+    {
+      title: 'AI Learning Assistant',
+      description: 'AI Powered Learning Assistance platform for document uploading, generating summaries, flashcards, and concept explanations.',
+      tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
+      details: [
+        'Document upload functionality with AI-powered content processing',
+        'Automated generation of study summaries and flashcards',
+        'Concept explanations using advanced AI algorithms',
+        'Implemented secure user authentication and profile management',
+        'Organized study material features with categorization',
+        'Responsive design for seamless learning experience'
+      ],
+      color: 'bg-purple-500',
+      liveLink: 'https://ai-learning-assistant-427a.onrender.com'
+    },
     {
       title: 'Admin Panel',
       description: 'Developed the frontend of an Admin Panel using React.js at AMPARO during internship.',
@@ -158,6 +174,19 @@ const Projects: React.FC = () => {
                 ))}
               </ul>
 
+              {selectedProject.liveLink && (
+                <div className="mb-6">
+                  <a 
+                    href={selectedProject.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition duration-300"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    View Live Demo
+                  </a>
+                </div>
+              )}
               
               <div className="flex justify-end">
                 <button 

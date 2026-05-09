@@ -18,6 +18,8 @@ const Skills: React.FC = () => {
     { name: 'JavaScript', level: 75, color: 'bg-yellow-500' },
     { name: 'React', level: 70, color: 'bg-cyan-500' },
     { name: 'Tailwind CSS', level: 80, color: 'bg-teal-500' },
+    { name: 'Node.js', level: 65, color: 'bg-green-600' },
+    { name: 'MongoDB', level: 60, color: 'bg-green-500' },
   ];
 
   const softSkills = [

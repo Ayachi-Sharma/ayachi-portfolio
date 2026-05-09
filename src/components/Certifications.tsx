@@ -16,6 +16,13 @@ const Certifications: React.FC = () => {
 
   const certifications: Certification[] = [
     {
+      title: '3 Month Internship',
+      issuer: 'Amparo Secure Tech., Bhilwara',
+      date: '2025',
+      icon: '🔒',
+      link: 'https://drive.google.com/file/d/1N93qt79iv9mQrzm-H1foeLYOjaGoZfOP/view?usp=sharing' // Replace with actual certificate link
+    },
+    {
       title: 'Core JAVA',
       issuer: 'MSME Technology Centre',
       date: '2024',
@@ -28,14 +35,8 @@ const Certifications: React.FC = () => {
       date: '2024',
       icon: '💻',
       link: 'https://drive.google.com/file/d/1Z9gus7YfrHCwjL8WBrFe3EzbimrWqUPg/view' // Replace with actual certificate link
-    },
-    {
-      title: '3 Month Internship',
-      issuer: 'Amparo Secure Tech., Bhilwara',
-      date: '2025',
-      icon: '🔒',
-      link: '#' // Replace with actual certificate link
     }
+    
   ];
 
   useEffect(() => {
