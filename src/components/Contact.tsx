@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
     <section 
       id="contact" 
       ref={sectionRef}
-      className="py-20 bg-gray-50"
+      className="py-18 bg-gray-50"
     >
       <motion.div 
         className="max-w-4xl mx-auto px-4"
