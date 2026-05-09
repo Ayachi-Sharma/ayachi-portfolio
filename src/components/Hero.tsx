@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-10 relative">
-      <div className="container mx-auto px-36 flex flex-col md:flex-row items-center gap-12">
+      <div className="container mx-auto px-30 flex flex-col md:flex-row items-center gap-12">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}

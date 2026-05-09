@@ -56,7 +56,7 @@ const Skills: React.FC = () => {
     <section 
       id="skills" 
       ref={sectionRef}
-      className={`py-10 transition-opacity duration-1000 ${
+      className={`py-8 transition-opacity duration-1000 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >

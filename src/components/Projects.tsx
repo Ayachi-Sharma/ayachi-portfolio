@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
     <section 
       id="projects" 
       ref={sectionRef}
-      className={`py-36 transition-opacity duration-1000 ${
+      className={`py-30 transition-opacity duration-1000 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
