@@ -63,10 +63,10 @@ const About: React.FC = () => {
           </div>
           
           <div className="mt-8 flex flex-wrap gap-3">
-            <span className="px-4 py-2 bg-red-100 text-gray-900 rounded-full border-2 border-red-500 font-medium hover:bg-gray-200 transition-colors">Web Development</span>
-            <span className="px-4 py-2 bg-blue-100 text-gray-900 rounded-full border-2 border-blue-500 font-medium hover:bg-gray-200 transition-colors">Problem Solving</span>
-            <span className="px-4 py-2 bg-green-100 text-gray-900 rounded-full border-2 border-green-500 font-medium hover:bg-gray-200 transition-colors">UI/UX</span>
-            <span className="px-4 py-2 bg-yellow-100 text-gray-900 rounded-full border-2 border-yellow-500 font-medium hover:bg-gray-200 transition-colors">Teamwork</span>
+            <span className="px-4 py-2 bg-red-100 text-gray-900 rounded-full border-2 border-red-500 font-medium ">Web Development</span>
+            <span className="px-4 py-2 bg-blue-100 text-gray-900 rounded-full border-2 border-blue-500 font-medium ">Problem Solving</span>
+            <span className="px-4 py-2 bg-green-100 text-gray-900 rounded-full border-2 border-green-500 font-medium ">UI/UX</span>
+            <span className="px-4 py-2 bg-yellow-100 text-gray-900 rounded-full border-2 border-yellow-500 font-medium ">Teamwork</span>
           </div>
         </div>
       </motion.div>

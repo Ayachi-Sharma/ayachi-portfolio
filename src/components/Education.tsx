@@ -17,6 +17,7 @@ const Education: React.FC = () => {
       school: 'Manikyalal Verma Textile & Engineering College, Bhilwara',
       degree: 'B.Tech in Information Technology',
       period: '2022-2026',
+      percentage: '8.7/10 cgpa '
     },
     {
       school: 'Noble International School',

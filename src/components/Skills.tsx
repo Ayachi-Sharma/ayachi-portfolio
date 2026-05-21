@@ -113,10 +113,6 @@ const Skills: React.FC = () => {
                   <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
                   <span>Volunteered at MILT</span>
                 </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span>Teamwork & Adaptability</span>
-                </li>
               </ul>
             </div>
             
