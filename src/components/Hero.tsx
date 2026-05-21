@@ -34,12 +34,13 @@ const Hero: React.FC = () => {
               {!isTypingComplete && <span className="animate-blink">|</span>}
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Passionate about creating seamless web experiences and turning innovative ideas into reality. Currently pursuing B.Tech in Information Technology, focusing on modern web technologies and best practices.
+              Passionate about creating seamless web experiences and turning innovative ideas into reality. Recently completed B.Tech in Information Technology, focusing on modern web technologies and best practices.
             </p>
             <div className="flex gap-4">
               <a 
                 href="https://drive.google.com/file/d/15tIcxraRGxaG83WKYOa2vodhxOYbV_da/view?usp=sharing" 
                 download
+                target="_blank"
                 className="bg-blue-900 text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1 hover:bg-blue-800 flex items-center gap-2"
               >
                 <Download className="w-5 h-5" />
