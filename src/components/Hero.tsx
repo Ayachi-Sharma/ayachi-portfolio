@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
             </p>
             <div className="flex gap-4">
               <a 
-                href="https://drive.google.com/file/d/15tIcxraRGxaG83WKYOa2vodhxOYbV_da/view?usp=sharing" 
+                href="https://drive.google.com/file/d/1XtXhlRtgj3yoGb2VN_faOQ-DB-5e1wdK/view?usp=sharing" 
                 rel="noopener noreferrer"
                 target="_blank"
                 className="bg-blue-900 text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1 hover:bg-blue-800 flex items-center gap-2"
