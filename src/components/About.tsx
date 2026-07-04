@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { User } from 'lucide-react';
 
 const About: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,48 +27,66 @@ const About: React.FC = () => {
     };
   }, []);
 
+  const stats = [
+    { label: 'CGPA • IT', value: '8.7' },
+    { label: 'INTERNSHIPS', value: '2' },
+    { label: 'PROJECTS SHIPPED', value: '4' },
+    { label: 'GRADUATING', value: '2026' }
+  ];
+
   return (
     <section 
       id="about" 
       ref={sectionRef}
-      className="py-20 bg-gray-50"
+      className="max-w-7xl mx-auto px-6 sm:px-8 py-16 sm:py-24"
     >
-      <motion.div 
-        className="max-w-4xl mx-auto px-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isVisible ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex items-center mb-8">
-          <div className="bg-blue-800 p-3 rounded-full">
-            <User className="h-6 w-6 text-white" />
-          </div>
-          <h2 className="text-3xl font-bold text-blue-700 ml-4">About Me</h2>
-        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         
-        <div className="bg-white p-8 rounded-xl shadow-lg">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              As a final year B.Tech student at Manikyalal Verma Textile and Engineering College, I'm passionate about creating innovative web solutions that make a difference. My journey in technology is driven by curiosity and a desire to build meaningful applications.
-            </p>
-            
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-      I specialize in front-end web development, with a strong foundation in modern web technologies. Currently focused on React.js and building responsive interfaces, I aim to grow into a full-stack developer as I expand my skills.
-      </p>
-            
-            <p className="text-lg text-gray-700 leading-relaxed">
-              I am always eager to learn and share knowledge with fellow developers.
-            </p>
-          </div>
+        {/* LEFT COLUMN: SECTION LABEL */}
+        <motion.div 
+          initial={{ opacity: 0, x: -15 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="lg:col-span-3 text-xs sm:text-sm font-mono-labels uppercase tracking-widest text-[#181816]/70 select-none"
+        >
+          (01) — ABOUT
+        </motion.div>
+
+        {/* RIGHT COLUMN: MAIN EDITORIAL DESCRIPTION */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="lg:col-span-9 space-y-16"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-[2.85rem] font-bold text-[#181816] tracking-tight leading-[1.25] font-serif-display select-none">
+            A motivated, detail-oriented developer with a strong foundation in{' '}
+            <span className="text-[#ff6b57] italic font-semibold">front-end</span> and{' '}
+            <span className="text-[#ff6b57] italic font-semibold">back-end</span> engineering — passionate about scalable, human interfaces and quick to learn whatever the stack demands.
+          </h2>
           
-          <div className="mt-8 flex flex-wrap gap-3">
-            <span className="px-4 py-2 bg-red-100 text-gray-900 rounded-full border-2 border-red-500 font-medium ">Web Development</span>
-            <span className="px-4 py-2 bg-blue-100 text-gray-900 rounded-full border-2 border-blue-500 font-medium ">Problem Solving</span>
-            <span className="px-4 py-2 bg-green-100 text-gray-900 rounded-full border-2 border-green-500 font-medium ">UI/UX</span>
-            <span className="px-4 py-2 bg-yellow-100 text-gray-900 rounded-full border-2 border-yellow-500 font-medium ">Teamwork</span>
+          {/* STATS MATRIX */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
+            {stats.map((stat, i) => (
+              <div key={i} className="space-y-3">
+                {/* Thin top border */}
+                <div className="h-[1px] w-full bg-[#181816]/30" />
+                
+                {/* Value */}
+                <div className="text-3xl sm:text-4xl font-serif-display font-bold text-[#181816]">
+                  {stat.value}
+                </div>
+                
+                {/* Label */}
+                <div className="text-[10px] sm:text-xs font-mono-labels uppercase tracking-wider text-[#181816]/70 font-semibold">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+
+      </div>
     </section>
   );
 };

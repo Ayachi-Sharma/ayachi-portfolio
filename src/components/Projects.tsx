@@ -1,12 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { FolderKanban, ExternalLink, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, CheckCircle2, ArrowUpRight } from 'lucide-react';
 
 interface Project {
+  id: string;
   title: string;
   description: string;
   tags: string[];
   details: string[];
-  color: string;
+  year: string;
+  isDarkTheme?: boolean;
   liveLink?: string;
 }
 
@@ -16,59 +19,54 @@ const Projects: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const projects: Project[] = [
-    {
-      title: 'AI Learning Assistant',
-      description: 'AI Powered Learning Assistance platform for document uploading, generating summaries, flashcards, and concept explanations.',
-      tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
-      details: [
-        'Document upload functionality with AI-powered content processing',
-        'Automated generation of study summaries and flashcards',
-        'Concept explanations using advanced AI algorithms',
-        'Implemented secure user authentication and profile management',
-        'Organized study material features with categorization',
-        'Responsive design for seamless learning experience'
-      ],
-      color: 'bg-purple-500',
-      liveLink: 'https://ai-learning-assistant-427a.onrender.com'
-    },
-    {
-      title: 'Admin Panel',
-      description: 'Developed the frontend of an Admin Panel using React.js at AMPARO during internship.',
-      tags: ['React.js', 'Chart.js', 'React Router'],
-      details: [
-        'Implemented data visualization using Chart.js',
-        'Built Tables with functionalities like filtering, sorting, and checkbox selection',
-        'Integrated React Router for seamless navigation across multiple pages',
-        'Created responsive layout for all device sizes'
-      ],
-      color: 'bg-blue-500'
-    },
-    {
-      title: 'To-do & Pomodoro Timer',
-      description: 'A productivity tool combining task management with Pomodoro technique.',
-      tags: ['JavaScript', 'HTML', 'CSS'],
-      details: [
-        'Add, delete, and mark tasks as complete using vanilla JavaScript',
-        'Pomodoro Timer with start, pause and reset using JavaScript timers',
-        'Used basics of JavaScript, CSS and HTML',
-        'Local storage integration for data persistence'
-      ],
-      color: 'bg-rose-500'
-    },
-    {
-      title: 'Medical Form',
-      description: 'A comprehensive form for medical information with validation.',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      details: [
-        'Sections for personal, contact, and office information using structured HTML',
-        'Implemented input validation using JavaScript to ensure data accuracy',
-        'Integration with CSS to improve visual layout and accessibility',
-        'Responsive design for all device sizes'
-      ],
-      color: 'bg-teal-500'
-    }
-  ];
+  {
+    id: "01",
+    title: "AI Powered Learning Assistant",
+    description:
+      "An end-to-end AI-powered learning platform that transforms study material into interactive learning experiences. Users can upload PDFs or text documents, generate AI summaries, create flashcards, take quizzes, chat with an AI tutor, and receive detailed concept explanations. Built with a scalable MERN architecture and deployed on Render.",
 
+    tags: [
+      "REACT",
+      "NODE.JS",
+      "EXPRESS",
+      "MONGODB",
+      "JWT",
+      "GROQ AI",
+      "OPENAI",
+      "REST API",
+      "TAILWIND CSS",
+      "MULTER"
+    ],
+
+    details: [
+      "Designed and developed the complete MERN architecture from scratch using React, Node.js, Express, and MongoDB.",
+
+      "Implemented secure JWT Authentication with protected routes, user sessions, and encrypted password storage.",
+
+      "Built an AI Chat Assistant that answers questions directly from uploaded study material using Large Language Models.",
+
+      "Integrated AI-powered PDF and text document processing, allowing users to upload notes and instantly extract useful study content.",
+
+      "Developed automatic AI Summary Generation that converts lengthy notes into concise revision material.",
+
+      "Created intelligent Flashcard Generation where AI automatically creates question-answer pairs for quick learning.",
+
+      "Implemented AI Quiz Generation with multiple-choice questions to help users test their understanding.",
+
+      "Added Concept Explanation functionality that simplifies difficult technical topics using AI-generated explanations.",
+
+      "Built complete CRUD functionality for notes, flashcards, quizzes, and user study history.",
+
+      "Integrated REST APIs between frontend and backend with efficient asynchronous data fetching.",
+
+      "Deployed both frontend and backend on Render with environment variable configuration and cloud database integration."
+    ],
+
+    year: "2026",
+
+    liveLink: "https://ai-learning-assistant-427a.onrender.com"
+  }
+];
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -95,111 +93,177 @@ const Projects: React.FC = () => {
     <section 
       id="projects" 
       ref={sectionRef}
-      className={`py-30 transition-opacity duration-1000 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className="max-w-7xl mx-auto px-6 sm:px-8 py-16 sm:py-24"
     >
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center mb-8">
-          <div className="bg-blue-100 p-3 rounded-full">
-            <FolderKanban className="h-6 w-6 text-blue-700" />
-          </div>
-          <h2 className="text-3xl font-bold text-gray-800 ml-4">Projects</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <div 
-              key={index}
-              className={`bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <div className={`h-2 w-full ${project.color}`}></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <button 
-                  onClick={() => setSelectedProject(project)}
-                  className="flex items-center text-blue-600 hover:text-blue-800 transition duration-300"
-                >
-                  <span>View details</span>
-                  <ChevronRight className="h-4 w-4 ml-1" />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
       
-      {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className={`h-2 w-full ${selectedProject.color}`}></div>
-            <div className="p-6">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-2xl font-bold text-gray-800">{selectedProject.title}</h3>
-                <button 
-                  onClick={() => setSelectedProject(null)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              
-              <div className="flex flex-wrap gap-2 mb-4">
-                {selectedProject.tags.map((tag, i) => (
-                  <span key={i} className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">Key Features:</h4>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700 mb-6">
-                {selectedProject.details.map((detail, i) => (
-                  <li key={i}>{detail}</li>
-                ))}
-              </ul>
-
-              {selectedProject.liveLink && (
-                <div className="mb-6">
-                  <a 
-                    href={selectedProject.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition duration-300"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    View Live Demo
-                  </a>
-                </div>
-              )}
-              
-              <div className="flex justify-end">
-                <button 
-                  onClick={() => setSelectedProject(null)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-300"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
+      {/* SECTION HEADER BLOCK */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b border-[#181816] pb-8 gap-4">
+        <div className="space-y-4">
+          <div className="text-xs sm:text-sm font-mono-labels uppercase tracking-widest text-[#181816]/70 select-none">
+            SELECTED WORK
           </div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#181816] font-serif-display select-none">
+            Projects
+          </h2>
         </div>
-      )}
+        </div>
+
+      {/* PROJECT ROWS LIST */}
+      <div className="divide-y divide-[#181816] border-b border-[#181816]">
+        {projects.map((project) => {
+          const textPrimary = project.isDarkTheme ? 'text-[#f5f2eb]' : 'text-[#181816]';
+          const textSecondary = project.isDarkTheme ? 'text-[#f5f2eb]/75' : 'text-[#181816]/75';
+          const borderPrimary = project.isDarkTheme ? 'border-[#f5f2eb]/30' : 'border-[#181816]/30';
+
+          return (
+            <motion.div 
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7 }}
+              onClick={() => setSelectedProject(project)}
+              className={`p-6 sm:p-10 cursor-pointer transition-colors duration-500 group relative ${
+                project.isDarkTheme 
+                  ? 'bg-[#181816] hover:bg-black' 
+                  : 'hover:bg-[#181816]/5'
+              }`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+                
+                {/* 1. Project number (col 1) */}
+                <div className={`lg:col-span-1 text-xs font-mono-labels ${textSecondary} font-bold select-none`}>
+                  {project.id}
+                </div>
+                
+                {/* 2. Title (col 5) */}
+                <div className="lg:col-span-5 select-none">
+                  <h3 className={`text-2xl sm:text-3xl lg:text-[2rem] font-bold ${textPrimary} font-serif-display group-hover:text-[#ff6b57] transition-colors leading-tight`}>
+                    {project.title}
+                  </h3>
+                </div>
+
+                {/* 3. Description & tags (col 5) */}
+                <div className="lg:col-span-5 space-y-6">
+                  <p className={`text-sm sm:text-base ${textSecondary} leading-relaxed font-sans`}>
+                    {project.description}
+                  </p>
+                  
+                  {/* Tags cloud */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {project.tags.map((tag, i) => (
+                      <span 
+                        key={i} 
+                        className={`text-[9px] sm:text-[10px] font-mono-labels font-bold tracking-wider px-2 py-0.5 border ${borderPrimary} ${textSecondary} rounded-none uppercase select-none`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 4. Year & link arrow (col 1) */}
+                <div className={`lg:col-span-1 flex items-center justify-end lg:justify-start gap-1 text-xs sm:text-sm font-mono-labels font-bold ${textSecondary} select-none`}>
+                  <span>{project.year}</span>
+                  <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Specifications Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProject(null)}
+              className="absolute inset-0 bg-[#181816]/75 backdrop-blur-sm"
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: "spring", duration: 0.4 }}
+              className="bg-[#f5f2eb] border border-[#181816] rounded-none shadow-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto relative z-10"
+            >
+              {/* Highlight line */}
+              <div className="h-1 bg-[#ff6b57]" />
+              
+              <div className="p-8 space-y-6">
+                
+                {/* Header */}
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <div className="text-[10px] font-mono-labels uppercase tracking-wider text-[#ff6b57] font-bold mb-1">
+                      Specifications
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#181816] font-serif-display leading-tight">
+                      {selectedProject.title}
+                    </h3>
+                  </div>
+                  <button 
+                    onClick={() => setSelectedProject(null)}
+                    className="text-[#181816] hover:text-[#ff6b57] p-1 border border-[#181816]/20 hover:border-[#ff6b57] transition-all"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+                
+                {/* Description */}
+                <p className="text-sm sm:text-base text-[#181816]/80 leading-relaxed font-sans border-l border-[#ff6b57] pl-3 italic">
+                  {selectedProject.description}
+                </p>
+                
+                {/* Deliverables Checklist */}
+                <div className="space-y-3">
+                  <h4 className="text-[10px] font-mono-labels uppercase tracking-wider text-[#181816]/65 font-bold">Key Specs</h4>
+                  <ul className="space-y-3">
+                    {selectedProject.details.map((detail, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#181816]">
+                        <CheckCircle2 className="h-4.5 w-4.5 text-[#ff6b57] shrink-0" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {/* Footer buttons */}
+                <div className="pt-4 flex items-center justify-between border-t border-[#181816]/10">
+                  {selectedProject.liveLink ? (
+                    <a 
+                      href={selectedProject.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#181816] hover:bg-[#ff6b57] text-[#f5f2eb] px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
+                    >
+                      <span>LAUNCH APP</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <span className="text-[10px] font-mono-labels text-[#181816]/60 font-semibold italic">
+                      Private Config / Internship Module
+                    </span>
+                  )}
+                  
+                  <button 
+                    onClick={() => setSelectedProject(null)}
+                    className="border border-[#181816] text-[#181816] hover:bg-[#181816] hover:text-[#f5f2eb] px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors"
+                  >
+                    CLOSE SPECS
+                  </button>
+                </div>
+                
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

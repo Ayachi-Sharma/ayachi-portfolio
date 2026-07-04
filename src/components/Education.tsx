@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { GraduationCap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface EducationItem {
   school: string;
@@ -16,19 +16,19 @@ const Education: React.FC = () => {
     {
       school: 'Manikyalal Verma Textile & Engineering College, Bhilwara',
       degree: 'B.Tech in Information Technology',
-      period: '2022-2026',
-      percentage: '8.7/10 cgpa '
+      period: '2022 - 2026',
+      percentage: '8.7 CGPA'
     },
     {
       school: 'Noble International School',
-      degree: 'Senior Secondary English Medium',
-      period: '2021-2022',
+      degree: 'Senior Secondary (12th Grade) - English Medium',
+      period: '2021 - 2022',
       percentage: '89%'
     },
     {
       school: 'Noble International School',
-      degree: 'Secondary English Medium',
-      period: '2019-2020',
+      degree: 'Secondary (10th Grade) - English Medium',
+      period: '2019 - 2020',
       percentage: '81%'
     }
   ];
@@ -59,53 +59,57 @@ const Education: React.FC = () => {
     <section 
       id="education" 
       ref={sectionRef}
-      className={`py-8 transition-opacity duration-1000 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className="max-w-7xl mx-auto px-6 sm:px-8 py-16 sm:py-24"
     >
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center mb-8">
-          <div className="bg-blue-100 p-3 rounded-full">
-            <GraduationCap className="h-6 w-6 text-blue-700" />
-          </div>
-          <h2 className="text-3xl font-bold text-gray-800 ml-4">Education</h2>
-        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-3 top-0 h-full w-0.5 bg-blue-200"></div>
-          
-          <div className="space-y-12">
-            {educationList.map((item, index) => (
-              <div 
-                key={index}
-                className={`relative pl-12 transform transition-all duration-700 ${
-                  isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 top-0 w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                </div>
-                
-                <div className="bg-white p-6 rounded-xl shadow-lg">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold text-gray-800">{item.school}</h3>
-                    {item.percentage && (
-                      <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                        {item.percentage}
-                      </span>
-                    )}
-                  </div>
-                  
-                  <p className="text-blue-700 font-medium mb-2">{item.degree}</p>
-                  <p className="text-gray-500">{item.period}</p>
-                </div>
+        {/* LEFT COLUMN: SECTION LABEL */}
+        <motion.div 
+          initial={{ opacity: 0, x: -15 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="lg:col-span-3 text-xs sm:text-sm font-mono-labels uppercase tracking-widest text-[#181816]/70 select-none"
+        >
+          EDUCATION
+        </motion.div>
+
+        {/* RIGHT COLUMN: TIMELINE ROWS */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="lg:col-span-9 divide-y divide-[#181816]/15 border-t border-b border-[#181816]/15 select-none"
+        >
+          {educationList.map((item, index) => (
+            <div 
+              key={index}
+              className="grid grid-cols-1 md:grid-cols-12 py-6 items-baseline gap-2 md:gap-6 hover:bg-[#181816]/[0.01] transition-colors"
+            >
+              {/* Period (col 3) */}
+              <div className="md:col-span-3 text-xs font-mono-labels text-[#181816]/60 font-bold tracking-wider">
+                {item.period}
               </div>
-            ))}
-          </div>
-        </div>
+              
+              {/* Institution and Degree (col 9) */}
+              <div className="md:col-span-9 space-y-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <h4 className="text-xl sm:text-2xl font-serif-display font-semibold text-[#181816]">
+                    {item.school}
+                  </h4>
+                  {item.percentage && (
+                    <span className="shrink-0 px-2.5 py-0.5 border border-[#181816]/30 text-xs font-mono-labels font-bold tracking-wider text-[#181816]/70 uppercase w-fit">
+                      {item.percentage}
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm sm:text-base text-[#181816]/80 font-sans font-medium">
+                  {item.degree}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
       </div>
     </section>
   );

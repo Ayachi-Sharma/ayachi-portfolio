@@ -1,34 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'lucide-react';
-import { Code2 } from 'lucide-react';
-
-interface Skill {
-  name: string;
-  level: number;
-  color: string;
-}
+import { motion } from 'framer-motion';
 
 const Skills: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  const skills: Skill[] = [
-    { name: 'HTML', level: 85, color: 'bg-orange-500' },
-    { name: 'CSS', level: 80, color: 'bg-blue-500' },
-    { name: 'JavaScript', level: 75, color: 'bg-yellow-500' },
-    { name: 'React', level: 70, color: 'bg-cyan-500' },
-    { name: 'Tailwind CSS', level: 80, color: 'bg-teal-500' },
-    { name: 'Node.js', level: 65, color: 'bg-green-600' },
-    { name: 'MongoDB', level: 60, color: 'bg-green-500' },
-  ];
-
-  const softSkills = [
-    'Teamwork',
-    'Adaptability',
-    'Communication',
-    'Problem Solving',
-    'Time Management',
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,86 +27,93 @@ const Skills: React.FC = () => {
     };
   }, []);
 
+  const toolkit = [
+  {
+    category: "LANGUAGES",
+    items: ["Java", "JavaScript"],
+  },
+  {
+    category: "FRONTEND",
+    items: ["React", "HTML", "CSS", "Tailwind CSS"],
+  },
+  {
+    category: "BACKEND",
+    items: ["Node.js", "Express.js", "REST API"],
+  },
+  {
+    category: "DATABASE",
+    items: ["MongoDB", "MySQL"],
+  },
+  {
+    category: "TOOLS",
+    items: ["Git", "GitHub", "VS Code", "Postman", "Render", "Vercel"],
+  },
+];
+
   return (
     <section 
       id="skills" 
       ref={sectionRef}
-      className={`py-8 transition-opacity duration-1000 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className="bg-[#181816] text-[#f5f2eb] w-full"
     >
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center mb-8">
-          <div className="bg-blue-100 p-3 rounded-full">
-            <Code2 className="h-6 w-6 text-blue-700" />
-          </div>
-          <h2 className="text-3xl font-bold text-gray-800 ml-4">Skills</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white p-8 rounded-xl shadow-lg">
-            <h3 className="text-xl font-semibold text-gray-800 mb-6">Technical Skills</h3>
-            
-            <div className="space-y-6">
-              {skills.map((skill, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-700 font-medium">{skill.name}</span>
-                    <span className="text-gray-500">{skill.level}%</span>
-                  </div>
-                  <div className="h-3 w-full bg-gray-200 rounded-full overflow-hidden">
-                    <div 
-                      className={`h-full ${skill.color} rounded-full transition-all duration-1000 ease-out`}
-                      style={{ 
-                        width: isVisible ? `${skill.level}%` : '0%',
-                        transitionDelay: `${index * 200}ms`
-                      }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-16 sm:py-24 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          <div className="bg-white p-8 rounded-xl shadow-lg">
-            <div className="mb-6">
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">Highlights</h4>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span
-                    className="inline-flex items-center gap-2"
-                  >
-                    Peak Performance Workshop at MILT 
-                    <a href="https://drive.google.com/file/d/1cbNtAcncc1aamNCP4FBAcWqLVE-Kuwwf/view"
-                    target='_blank'>
-                    <Link className="w-5 h-5 text-black" />
-                    </a>
-                    </span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span>Volunteered at MILT</span>
-                </li>
-              </ul>
+          {/* LEFT COLUMN: TITLE BLOCKS */}
+          <motion.div 
+            initial={{ opacity: 0, x: -15 }}
+            animate={isVisible ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 space-y-6 select-none"
+          >
+            <div className="text-xs sm:text-sm font-mono-labels uppercase tracking-widest text-[#f5f2eb]/60">
+              SKILLS
             </div>
             
-            <h3 className="text-xl my-8 font-semibold text-gray-800 ">Soft Skills</h3>
-            
-            <div className="flex flex-wrap gap-4">
-              {softSkills.map((skill, index) => (
-                <div 
-                  key={index}
-                  className={`bg-gray-100 border-2 border-gray-400 rounded-lg px-6 py-4 text-center transform transition-all duration-500 ${
-                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                  }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <span className="text-gray-700 font-medium">{skill}</span>
+            <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight font-serif-display leading-none">
+              What I<br />
+              <span className="text-[#b2d835] italic font-semibold">wield.</span>
+            </h2>
+          </motion.div>
+          
+          {/* RIGHT COLUMN: TABULAR CAPABILITY MATRIX */}
+          <motion.div 
+            initial={{ opacity: 0, y: 25 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-8 divide-y divide-[#f5f2eb]/15 border-t border-b border-[#f5f2eb]/15 select-none"
+          >
+            {toolkit.map((row, index) => (
+              <div 
+                key={index}
+                className="grid grid-cols-1 md:grid-cols-12 py-5 items-baseline gap-2 md:gap-6 hover:bg-white/[0.02] transition-colors"
+              >
+                {/* Category mono label (col 3) */}
+                <div className="md:col-span-3 text-[10px] sm:text-xs font-mono-labels text-[#f5f2eb]/50 font-bold uppercase tracking-widest">
+                  {row.category}
                 </div>
-              ))}
-            </div>
-          </div>
+                
+                {/* Items serif list (col 9) */}
+                {/* Items serif list (col 9) */}
+<div className="md:col-span-9 text-xl sm:text-2xl font-serif-display font-semibold text-[#f5f2eb]/90 leading-tight flex flex-wrap items-center">
+  {row.items.map((item, index) => (
+    <React.Fragment key={item}>
+      <span>{item}</span>
+
+      {index !== row.items.length - 1 && (
+        <span
+          className="mx-3 text-[#b2d835] text-lg"
+        >
+          •
+        </span>
+      )}
+    </React.Fragment>
+  ))}
+</div>
+              </div>
+            ))}
+          </motion.div>
+          
         </div>
       </div>
     </section>

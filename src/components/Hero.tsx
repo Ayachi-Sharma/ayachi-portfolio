@@ -1,81 +1,85 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import pic from "../assets/ayachi-pic.jpg";
-import { Download, Mail} from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [typedText, setTypedText] = useState('');
-  const fullText = 'Ayachi Sharma';
-  const [isTypingComplete, setIsTypingComplete] = useState(false);
-
-  useEffect(() => {
-    if (typedText.length < fullText.length) {
-      const timeout = setTimeout(() => {
-        setTypedText(fullText.slice(0, typedText.length + 1));
-      }, 100);
-      return () => clearTimeout(timeout);
-    } else {
-      setIsTypingComplete(true);
-    }
-  }, [typedText, fullText]);
+  const stats = [
+    { label: 'CGPA • IT', value: '8.7' },
+    { label: 'INTERNSHIPS', value: '2' },
+    { label: 'PROJECTS SHIPPED', value: '4' },
+    { label: 'GRADUATING', value: '2026' }
+  ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-10 relative">
-      <div className="container mx-auto px-30 flex flex-col md:flex-row items-center gap-12">
+    <div className="max-w-7xl mx-auto pt-8 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20 px-8 sm:px-8 py-16 sm:py-24 lg:py-28 space-y-12 sm:space-y-24">
+      
+      {/* 1. MERN STACK TAGLINE */}
+      <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center gap-2 text-xs sm:text-sm font-mono-labels uppercase tracking-widest text-[#181816]/70 select-none"
+      >
+        <span className="text-[#ff6b57] text-sm">◆</span>
+        <span>MERN STACK DEVELOPER</span>
+      </motion.div>
+
+      {/* 2. SPLIT INTRO DISPLAY */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+        
+        {/* LEFT COLUMN: LARGE SERIF NAME (Spans 7 cols) */}
         <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="lg:col-span-7 select-none"
         >
-          <div className="relative">
-            <h2 className="text-3xl md:text-5xl text-blue-600 font-medium mb-4">
-              {typedText}
-              {!isTypingComplete && <span className="animate-blink">|</span>}
-            </h2>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Passionate about creating seamless web experiences and turning innovative ideas into reality. Recently completed B.Tech in Information Technology, focusing on modern web technologies and best practices.
-            </p>
-            <div className="flex gap-4">
-              <a 
-                href="https://drive.google.com/file/d/1XtXhlRtgj3yoGb2VN_faOQ-DB-5e1wdK/view?usp=sharing" 
-                rel="noopener noreferrer"
-                target="_blank"
-                className="bg-blue-900 text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1 hover:bg-blue-800 flex items-center gap-2"
-              >
-                <Download className="w-5 h-5" />
-                Download CV
-              </a>
-              <button 
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  element?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="border-2 border-blue-700 text-gray-900 px-6 py-3 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1 hover:bg-gray-200 flex items-center gap-2"
-              >
-                <Mail className="w-5 h-5" />
-                Contact Me
-              </button>
+          <h1 className="text-[14vw] sm:text-[10vw] lg:text-[7.5rem] font-bold tracking-tight leading-[0.85] text-[#181816] font-serif-display">
+            Ayachi<br />
+            <span className="text-[#ff6b57] italic font-semibold">Sharma</span>
+            {/* <span className="text-[#181816]">.</span> */}
+          </h1>
+        </motion.div>
+
+        {/* RIGHT COLUMN: RECRUITING PARAGRAPH (Spans 5 cols) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="lg:col-span-5 space-y-8 lg:pl-6"
+        >
+          <p className="text-lg sm:text-xl text-[#181816]/90 leading-relaxed font-sans font-medium">
+            A motivated, detail-oriented MERN stack engineer. I build responsive, user-friendly web applications end-to-end — from React interfaces to Node/Express APIs and MongoDB databases. Currently open to entry-level full stack roles.
+          </p>
+          
+          {/* Scroll explore */}
+          <div className="flex items-center gap-4 text-xs font-mono-labels uppercase tracking-wider text-[#181816]/70">
+            <span className="w-12 h-[1px] bg-[#181816]/60" />
+            <span>SCROLL TO EXPLORE</span>
+          </div>
+        </motion.div>
+
+      </div>
+
+      {/* 3. INTEGRATED METRICS ROW */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.45 }}
+        className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4 border-t border-[#181816]/30 select-none"
+      >
+        {stats.map((stat, i) => (
+          <div key={i} className="space-y-2">
+            <div className="text-3xl sm:text-4xl font-serif-display font-bold text-[#181816]">
+              {stat.value}
+            </div>
+            <div className="text-[10px] sm:text-xs font-mono-labels uppercase tracking-wider text-[#181816]/70 font-semibold">
+              {stat.label}
             </div>
           </div>
-        </motion.div>
-        
-        <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex-1 flex justify-center"
-        >
-          <div className="relative w-80 h-80 rounded-full overflow-hidden border-8 border-gray-100 shadow-xl">
-            <img 
-              src = {pic} 
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
-      </div>
-    </section>
+        ))}
+      </motion.div>
+
+    </div>
   );
 };
 
