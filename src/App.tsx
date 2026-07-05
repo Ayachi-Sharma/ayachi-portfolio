@@ -58,7 +58,7 @@ function App() {
     <div className="min-h-screen bg-[#f5f2eb] text-[#181816] font-sans antialiased">
       
       {/* 1. TOP ANNOUNCEMENT BANNER */}
-      <div className="w-full flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8 py-2.5 border-b border-[#181816] text-[10px] sm:text-xs font-mono-labels uppercase tracking-widest text-[#181816]/80 gap-2 select-none">
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8 py-2.5 border-b-2 border-[#181816]/15 text-[10px] sm:text-xs font-mono-labels uppercase tracking-widest text-[#181816]/80 gap-2 select-none">
         <div>
           AYACHI SHARMA / PORTFOLIO '26
         </div>
@@ -72,7 +72,7 @@ function App() {
       </div>
 
       {/* 2. MAIN HEADER NAVIGATION */}
-      <header className="sticky top-0 bg-[#f5f2eb] border-b border-[#181816] z-50 px-4 sm:px-8 py-4">
+      <header className="sticky top-0 bg-[#f5f2eb] border-b-2 border-[#181816]/15 z-50 px-4 sm:px-8 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           
           {/* Logo brand */}

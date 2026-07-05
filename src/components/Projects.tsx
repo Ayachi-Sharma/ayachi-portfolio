@@ -97,19 +97,16 @@ const Projects: React.FC = () => {
     >
       
       {/* SECTION HEADER BLOCK */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b border-[#181816] pb-8 gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end pb-8 gap-4">
         <div className="space-y-4">
           <div className="text-xs sm:text-sm font-mono-labels uppercase tracking-widest text-[#181816]/70 select-none">
-            SELECTED WORK
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#181816] font-serif-display select-none">
             Projects
-          </h2>
+          </div>
         </div>
         </div>
 
       {/* PROJECT ROWS LIST */}
-      <div className="divide-y divide-[#181816] border-b border-[#181816]">
+      <div className="divide-y divide-[#181816] ">
         {projects.map((project) => {
           const textPrimary = project.isDarkTheme ? 'text-[#f5f2eb]' : 'text-[#181816]';
           const textSecondary = project.isDarkTheme ? 'text-[#f5f2eb]/75' : 'text-[#181816]/75';
@@ -129,12 +126,6 @@ const Projects: React.FC = () => {
               }`}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
-                
-                {/* 1. Project number (col 1) */}
-                <div className={`lg:col-span-1 text-xs font-mono-labels ${textSecondary} font-bold select-none`}>
-                  {project.id}
-                </div>
-                
                 {/* 2. Title (col 5) */}
                 <div className="lg:col-span-5 select-none">
                   <h3 className={`text-2xl sm:text-3xl lg:text-[2rem] font-bold ${textPrimary} font-serif-display group-hover:text-[#ff6b57] transition-colors leading-tight`}>

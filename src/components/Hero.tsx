@@ -2,15 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
-  const stats = [
-    { label: 'CGPA • IT', value: '8.7' },
-    { label: 'INTERNSHIPS', value: '2' },
-    { label: 'PROJECTS SHIPPED', value: '4' },
-    { label: 'GRADUATING', value: '2026' }
-  ];
-
   return (
-    <div className="max-w-7xl mx-auto pt-8 pb-14 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20 px-8 sm:px-8 py-16 sm:py-24 lg:py-28 space-y-12 sm:space-y-24">
+    <div className="max-w-7xl mx-auto py-28 px-8 lg:px-10 lg:py-32 space-y-12 sm:space-y-24">
       
       {/* 1. MERN STACK TAGLINE */}
       <motion.div 
@@ -48,7 +41,7 @@ const Hero: React.FC = () => {
           className="lg:col-span-5 space-y-8 lg:pl-6"
         >
           <p className="text-lg sm:text-xl text-[#181816]/90 leading-relaxed font-sans font-medium">
-            A motivated, detail-oriented MERN stack engineer. I build responsive, user-friendly web applications end-to-end — from React interfaces to Node/Express APIs and MongoDB databases. Currently open to entry-level full stack roles.
+          Full Stack Developer with hands-on experience designing and building complete web applications — from responsive React front ends to RESTful Node.js/Express APIs and MongoDB-backed data layers. Focused on writing clean, scalable code and delivering seamless user experiences.
           </p>
           
           {/* Scroll explore */}
@@ -59,25 +52,6 @@ const Hero: React.FC = () => {
         </motion.div>
 
       </div>
-
-      {/* 3. INTEGRATED METRICS ROW */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.45 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4 border-t border-[#181816]/30 select-none"
-      >
-        {stats.map((stat, i) => (
-          <div key={i} className="space-y-2">
-            <div className="text-3xl sm:text-4xl font-serif-display font-bold text-[#181816]">
-              {stat.value}
-            </div>
-            <div className="text-[10px] sm:text-xs font-mono-labels uppercase tracking-wider text-[#181816]/70 font-semibold">
-              {stat.label}
-            </div>
-          </div>
-        ))}
-      </motion.div>
 
     </div>
   );

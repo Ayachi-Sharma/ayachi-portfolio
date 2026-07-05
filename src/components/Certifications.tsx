@@ -16,7 +16,7 @@ const Certifications: React.FC = () => {
 
   const certifications: Certification[] = [
   {
-    title: '3-Month Software Engineering Internship',
+    title: '3-Month MERN Stack Internship',
     issuer: 'Amparo Secure Technologies, Bhilwara',
     date: '2025',
     description: [
