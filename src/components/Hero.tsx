@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
       </motion.div>
 
       {/* 2. SPLIT INTRO DISPLAY */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         
         {/* LEFT COLUMN: LARGE SERIF NAME (Spans 7 cols) */}
         <motion.div 
