@@ -35,36 +35,25 @@ const Projects: React.FC = () => {
       "OPENAI",
       "REST API",
       "TAILWIND CSS",
-      "MULTER"
+      "AWS(Amazon Web Services)"
     ],
 
     details: [
-      "Designed and developed the complete MERN architecture from scratch using React, Node.js, Express, and MongoDB.",
-
-      "Implemented secure JWT Authentication with protected routes, user sessions, and encrypted password storage.",
-
-      "Built an AI Chat Assistant that answers questions directly from uploaded study material using Large Language Models.",
-
-      "Integrated AI-powered PDF and text document processing, allowing users to upload notes and instantly extract useful study content.",
-
-      "Developed automatic AI Summary Generation that converts lengthy notes into concise revision material.",
-
-      "Created intelligent Flashcard Generation where AI automatically creates question-answer pairs for quick learning.",
-
-      "Implemented AI Quiz Generation with multiple-choice questions to help users test their understanding.",
-
-      "Added Concept Explanation functionality that simplifies difficult technical topics using AI-generated explanations.",
-
-      "Built complete CRUD functionality for notes, flashcards, quizzes, and user study history.",
-
-      "Integrated REST APIs between frontend and backend with efficient asynchronous data fetching.",
-
-      "Deployed both frontend and backend on Render with environment variable configuration and cloud database integration."
+      "Designed and developed a full-stack MERN application (React, Node.js, Express, MongoDB) from scratch.",
+      "Implemented JWT authentication with protected routes, session management, and encrypted password storage.",
+      "Built an AI Chat Assistant that answers questions directly from uploaded study material using LLMs.",
+      "Integrated AI-powered processing of PDFs and text documents to extract study content on upload.",
+      "Developed AI-based Summary, Flashcard, and Quiz generation to convert notes into revision material, Q&A pairs, and MCQs.",
+      "Added AI-driven Concept Explanation to simplify complex technical topics.",
+      "Implemented file uploads to AWS S3 for secure, scalable storage of user documents.",
+      "Built CRUD functionality for notes, flashcards, quizzes, and study history.",
+      "Connected frontend and backend via REST APIs with asynchronous data handling.",
+      "Deployed frontend and backend on Render with environment-based configuration and cloud database integration."
     ],
 
     year: "2026",
 
-    liveLink: "https://ai-learning-assistant-427a.onrender.com"
+    liveLink: "https://ai-learning-assistant-frontend-beryl.vercel.app/dashboard"
   }
 ];
   useEffect(() => {

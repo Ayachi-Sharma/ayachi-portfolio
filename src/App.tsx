@@ -3,8 +3,9 @@ import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
-import Certifications from './components/Certifications';
+import Experience from './components/Experience';
 import Contact from './components/Contact';
+import Certifications from './components/Certifications';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
 
@@ -63,7 +64,7 @@ function App() {
           AYACHI SHARMA / PORTFOLIO '26
         </div>
         <div className="flex items-center gap-1.5">
-          BHILWARA, IN — {time || '05:44:59 PM'}
+          Jaipur, IN — {time || '05:44:59 PM'}
         </div>
         <div className="flex items-center gap-2 font-semibold">
           <span className="w-2 h-2 rounded-full bg-[#b2d835]" />
@@ -130,14 +131,19 @@ function App() {
           <Projects />
         </section>
 
-        {/* CERTIFICATIONS */}
+        {/* Experience */}
         <section id="Experience" className="border-b border-[#181816]">
-          <Certifications />
+          <Experience />
         </section>
 
         {/* TOOLKIT SECTION (SKILLS) */}
         <section id="skills" className="border-b border-[#181816] bg-[#181816] text-[#f5f2eb]">
           <Skills />
+        </section>
+
+       {/* Certifications */}
+        <section id="Experience" className="border-b border-[#181816]">
+          <Certifications />
         </section>
 
         {/* EDUCATION & TIMELINE */}

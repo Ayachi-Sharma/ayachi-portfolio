@@ -46,7 +46,7 @@ const Skills: React.FC = () => {
   },
   {
     category: "TOOLS",
-    items: ["Git", "GitHub", "VS Code", "Postman", "Render", "Vercel"],
+    items: ["AWS", "Git", "GitHub", "VS Code", "Postman", "Render", "Vercel"],
   },
 ];
 
